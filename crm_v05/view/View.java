@@ -100,24 +100,8 @@ public class View {
         customerDao.addCustomer(customerInfo);
 
 
-//        if (customer == null) {
-//            customerDao.addCustomer(customerInfo);
-//            System.out.println("添加客户信息成功");
-//        } else {
-//            System.out.println("已存在相同的电话号码，添加失败");
-//        }
-        showAllCustomer();
     }
-//        Customer customerInfo = getCustomerInfo();
-//        Customer customer = customerDaoImpl.selectCustomerByPhone(getCustomerInfo().getPhone());
-//
-//
-//        if (customer == null) {
-//            customerDaoImpl.addCustomer(customerInfo);
-//            System.out.println("添加客户信息成功");
-//            return;
-//        }
-//        System.out.println("已存在相同的电话号码，添加失败");
+
 
     private Customer getCustomerInfo() {
         Customer customer = new Customer();
