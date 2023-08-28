@@ -2,11 +2,19 @@ package com.wnxy.day16;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class DateDemo {
     public static void main(String[] args) {
-        demo02();
+        demo03();
+    }
+
+    public static void demo03() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        System.out.println(now.format(dateTimeFormatter));
     }
 
     public static void demo02() {
