@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class CompanyFileDaoImpl implements CompanyDao {
-    private final String path = "C:\\ziyuan\\resource\\crm_v05\\customers.txt";
+    private final String path = "C:\\ziyuan\\resource\\compny\\company.txt";
     List<Company> companys = showAllCompany();
 
 
