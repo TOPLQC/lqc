@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,8 +21,12 @@ public class CustomerFileDaoImpl implements CustomerDao {
 
     @Override
     public boolean deleteCustomerByIndex(int index) {
-
-        return false;
+        if (index > customers.size()) {
+            return false;
+        }
+        customers.remove(index);
+        saveCustomers2File();
+        return true;
     }
 
     @Override
@@ -101,6 +106,13 @@ public class CustomerFileDaoImpl implements CustomerDao {
 
     @Override
     public void deleteCustomerByName(String name) {
-
+        Iterator<Customer> iterator = customers.iterator();
+        while (iterator.hasNext()) {
+            Customer customer = iterator.next();
+            if (customer.getName().equals(name)) {
+                iterator.remove();
+            }
+        }
+        saveCustomers2File();
     }
 }
