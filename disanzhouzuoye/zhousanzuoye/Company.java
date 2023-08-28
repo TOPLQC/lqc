@@ -13,8 +13,7 @@ public class Company {
     private int year;
 
     public Company() {
-        Company company = new Company();
-        company.setId(IdUtil.createId());
+        setId(IdUtil.createId());
     }
 //
 //    public Company(int id, String name, String boss, int year) {

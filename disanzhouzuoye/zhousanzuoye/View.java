@@ -52,6 +52,7 @@ public class View {
         String methodName = menuMap.get(menus[index]);
         System.out.println(methodName);
         Method method = View.class.getDeclaredMethod(methodName);
+        System.out.println(method);
         method.invoke(this);
     }
 
@@ -74,5 +75,23 @@ public class View {
     private void selectCompanyById() {
         Optional<Company> company = companyDao.selectCompanyById(17);
         System.out.println(company);
+    }
+
+    private Company getCompanyInfo() {
+        Company company = new Company();
+        System.out.println("请输入公司的名字");
+        String companyName = scanner.next();
+        company.setName(companyName);
+        System.out.println("请输入公司Boss名字");
+        String bossName = scanner.next();
+        company.setBoss(bossName);
+        System.out.println("请输入公司成立的年份");
+        Integer year = scanner.nextInt();
+        company.setYear(year);
+        return company;
+    }
+
+    private void addCompany() {
+        boolean flag = companyDao.addCompany(getCompanyInfo());
     }
 }
