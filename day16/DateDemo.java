@@ -5,10 +5,37 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Random;
 
 public class DateDemo {
     public static void main(String[] args) {
-        demo03();
+        demo05();
+    }
+
+    public static void demo05() {
+        Random random = new Random();
+        for (int i = 0; i < 200; i++) {
+            int num = random.nextInt(10000);
+            String res = String.format("%04d", num);
+            System.out.println(res);
+        }
+
+
+    }
+
+
+    //生成四位随机数
+    public static void demo04() {
+        Random random = new Random();
+        for (int i = 0; i < 5; i++) {
+            double number = random.nextDouble();
+            System.out.println(number);
+        }
+        for (int i = 0; i < 5; i++) {
+            int num = random.nextInt(100000);
+            System.out.println(num);
+        }
+
     }
 
     public static void demo03() {
