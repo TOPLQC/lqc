@@ -1,5 +1,7 @@
 package com.wnxy.day16;
 
+import com.wnxy.utils.IdUtil;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -9,7 +11,13 @@ import java.util.Random;
 
 public class DateDemo {
     public static void main(String[] args) {
-        demo05();
+        demo06();
+    }
+
+    public static void demo06() {
+        for (int i = 0; i < 20; i++) {
+            System.out.println(IdUtil.createId());
+        }
     }
 
     public static void demo05() {
