@@ -15,6 +15,15 @@ public class Company {
     public Company() {
         setId(IdUtil.createId());
     }
+
+    public Company(String line) {
+        String[] items = line.split("-");
+        this.id = items[0];
+        this.name = items[1];
+        this.boss = items[2];
+        this.year = Integer.parseInt(items[3]);
+
+    }
 //
 //    public Company(int id, String name, String boss, int year) {
 //        this.id = id;
