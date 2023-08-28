@@ -76,7 +76,8 @@ public class View {
     }
 
     private void selectCompanyById() {
-        Optional<Company> company = companyDao.selectCompanyById(17);
+        System.out.println("请输入要查询的公司id");
+        Optional<Company> company = companyDao.selectCompanyById("17");
         System.out.println(company);
     }
 

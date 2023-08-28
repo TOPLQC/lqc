@@ -10,13 +10,13 @@ import java.util.Optional;
 public interface CompanyDao {
     List<Company> showAllCompany();
 
-    Optional<Company> selectCompanyById(Integer id);
+    Optional<Company> selectCompanyById(String id);
 
     boolean addCompany(Company company);
 
     List<Company> selectCompanyByYearRange(Integer year1, Integer year2);
 
-    void deleteCompanyById(Integer id);
+    void deleteCompanyById(String id);
 
     List<Company> yearOfEstablishmentSortedQuery();
 
