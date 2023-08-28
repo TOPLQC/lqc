@@ -19,8 +19,6 @@ public class DateDemo {
             String res = String.format("%04d", num);
             System.out.println(res);
         }
-
-
     }
 
 
