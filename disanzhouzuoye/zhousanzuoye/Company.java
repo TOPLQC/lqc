@@ -1,20 +1,21 @@
 package com.wnxy.disanzhouzuoye.zhousanzuoye;
 
+import com.wnxy.disanzhouzuoye.utils.IdUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class Company {
-    private int id;
+    private String id;
     private String name;
     private String boss;
     private int year;
 
-//    public Company() {
-//    }
+    public Company() {
+        Company company = new Company();
+        company.setId(IdUtil.createId());
+    }
 //
 //    public Company(int id, String name, String boss, int year) {
 //        this.id = id;
