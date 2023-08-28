@@ -22,7 +22,6 @@ public class Company {
         this.name = items[1];
         this.boss = items[2];
         this.year = Integer.parseInt(items[3]);
-
     }
 //
 //    public Company(int id, String name, String boss, int year) {
