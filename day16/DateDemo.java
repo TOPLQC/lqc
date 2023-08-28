@@ -1,6 +1,6 @@
 package com.wnxy.day16;
 
-import com.wnxy.utils.IdUtil;
+import com.wnxy.disanzhouzuoye.utils.IdUtil;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

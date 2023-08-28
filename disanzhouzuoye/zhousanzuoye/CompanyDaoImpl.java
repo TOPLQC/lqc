@@ -58,16 +58,7 @@ public class CompanyDaoImpl implements CompanyDao {
 
     public void deleteCompanyById(Integer id) {
         companies.removeIf(company -> company.getId() == id);//使用removeIf
-//        boolean flag = false;
-//        Iterator<Company> iterator = companies.iterator();
-//        while (iterator.hasNext()){
-//            Company company = iterator.next();
-//            if (company.getId()==id){
-//                iterator.remove();
-//                return flag=true;
-//            }
-//        }
-//        return flag;
+
     }
 
     public List<Company> yearOfEstablishmentSortedQuery() {
