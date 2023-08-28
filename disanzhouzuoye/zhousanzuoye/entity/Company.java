@@ -1,4 +1,4 @@
-package com.wnxy.disanzhouzuoye.zhousanzuoye;
+package com.wnxy.disanzhouzuoye.zhousanzuoye.entity;
 
 import com.wnxy.disanzhouzuoye.utils.IdUtil;
 import lombok.AllArgsConstructor;
