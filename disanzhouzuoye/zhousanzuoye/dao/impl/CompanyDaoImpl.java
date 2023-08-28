@@ -25,7 +25,7 @@ public class CompanyDaoImpl implements CompanyDao {
         return companies;
     }
 
-    public Optional<Company> selectCompanyById(Integer id) {
+    public Optional<Company> selectCompanyById(String id) {
         Optional<Company> optional = companies.stream()
                 .filter(company -> company.getId().equals(id))
                 .findFirst();
@@ -59,7 +59,7 @@ public class CompanyDaoImpl implements CompanyDao {
                 .collect(Collectors.toList());
     }
 
-    public void deleteCompanyById(Integer id) {
+    public void deleteCompanyById(String id) {
         companies.removeIf(company -> company.getId().equals(id));//使用removeIf
 
     }
