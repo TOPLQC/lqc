@@ -8,13 +8,13 @@ public class CompanyDaoImpl implements CompanyDao {
     List<Company> companies = new ArrayList<>();
 
     static {
-        companies.add(new Company(11, "蜗牛", "邓强", 2011));
-        companies.add(new Company(12, "千峰", "欧阳锋", 2005));
-        companies.add(new Company(13, "传智", "欧阳锋", 2022));
-        companies.add(new Company(14, "雷人科技", "邓强", 2009));
-        companies.add(new Company(15, "兄弟连", "欧阳锋", 2000));
-        companies.add(new Company(16, "达内", "赵灵儿", 2011));
-        companies.add(new Company(17, "达外", "赵灵儿", 2019));
+        companies.add(new Company("11", "蜗牛", "邓强", 2011));
+        companies.add(new Company("11", "千峰", "欧阳锋", 2005));
+        companies.add(new Company("11", "传智", "欧阳锋", 2022));
+        companies.add(new Company("11", "雷人科技", "邓强", 2009));
+        companies.add(new Company("11", "兄弟连", "欧阳锋", 2000));
+        companies.add(new Company("11", "达内", "赵灵儿", 2011));
+        companies.add(new Company("11", "达外", "赵灵儿", 2019));
     }
 
 
@@ -24,7 +24,7 @@ public class CompanyDaoImpl implements CompanyDao {
 
     public Optional<Company> selectCompanyById(Integer id) {
         Optional<Company> optional = companies.stream()
-                .filter(company -> company.getId() == id)
+                .filter(company -> company.getId().equals(id))
                 .findFirst();
         if (optional.isPresent()) {
             return Optional.of(optional.get());
@@ -57,7 +57,7 @@ public class CompanyDaoImpl implements CompanyDao {
     }
 
     public void deleteCompanyById(Integer id) {
-        companies.removeIf(company -> company.getId() == id);//使用removeIf
+        companies.removeIf(company -> company.getId().equals(id));//使用removeIf
 
     }
 
