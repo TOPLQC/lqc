@@ -15,6 +15,7 @@ public class DateDemo {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime birth = LocalDateTime.of(1998, 8, 25, 00, 00, 00);
+
         System.out.println(now.format(dateTimeFormatter));
         System.out.println(birth.format(dateTimeFormatter));
     }
