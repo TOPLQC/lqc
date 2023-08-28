@@ -1,5 +1,6 @@
-package com.wnxy.disanzhouzuoye.zhousanzuoye;
+package com.wnxy.disanzhouzuoye.zhousanzuoye.factory;
 
+import com.wnxy.disanzhouzuoye.zhousanzuoye.dao.CompanyDao;
 import lombok.SneakyThrows;
 
 import java.io.InputStream;

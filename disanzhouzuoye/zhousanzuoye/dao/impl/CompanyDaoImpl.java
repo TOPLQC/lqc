@@ -1,4 +1,7 @@
-package com.wnxy.disanzhouzuoye.zhousanzuoye;
+package com.wnxy.disanzhouzuoye.zhousanzuoye.dao.impl;
+
+import com.wnxy.disanzhouzuoye.zhousanzuoye.dao.CompanyDao;
+import com.wnxy.disanzhouzuoye.zhousanzuoye.entity.Company;
 
 import java.util.*;
 import java.util.stream.Collectors;

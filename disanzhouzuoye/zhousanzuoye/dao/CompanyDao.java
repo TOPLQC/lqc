@@ -1,4 +1,6 @@
-package com.wnxy.disanzhouzuoye.zhousanzuoye;
+package com.wnxy.disanzhouzuoye.zhousanzuoye.dao;
+
+import com.wnxy.disanzhouzuoye.zhousanzuoye.entity.Company;
 
 import java.util.List;
 import java.util.Map;
