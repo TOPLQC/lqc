@@ -17,7 +17,7 @@ public class DaoFactory {
         Properties properties = new Properties();
         properties.load(is);//加载文件内容
         //通过properties以及关键字，将要创建的DaoImpl类的类名创建出来
-        String property = properties.getProperty("COMPANY_DAO");
+        String property = properties.getProperty("COMPANYFILE_DAO");
         CompanyDao companyDao = (CompanyDao) Class.forName(property).newInstance();
 //        CustomerDao customerDao = new CustomerDaoImpl();
         return companyDao;

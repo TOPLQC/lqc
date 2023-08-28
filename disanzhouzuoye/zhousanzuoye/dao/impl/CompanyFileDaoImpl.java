@@ -70,8 +70,8 @@ public class CompanyFileDaoImpl implements CompanyDao {
                 return flag = false;
             }
         }
-        saveCustomers2File();
         companys.add(company);
+        saveCustomers2File();
         return flag;
 
 
