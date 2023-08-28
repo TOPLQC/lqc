@@ -44,22 +44,6 @@ public class CustomerFileDaoImpl implements CustomerDao {
 
     @Override
     public List<Customer> getCustomerByFirstName(String firstName) {
-//        ArrayList<Customer> customers = new ArrayList<>();
-//        List<Customer> temp = new ArrayList<>();
-//        try (FileReader fileReader = new FileReader(path)) {
-//            BufferedReader bufferedReader = new BufferedReader(fileReader);
-//            String line;
-//            while ((line = bufferedReader.readLine()) != null) {
-//                Customer customer = new Customer(line);
-//                customers.add(customer);
-//                List<Customer> collect = customers.stream()
-//                        .filter(customer1 -> customer1.getName().startsWith(firstName))
-//                        .collect(Collectors.toList());
-//                temp = collect;
-//            }
-//        } catch (Exception e) {
-//        }
-//        return temp;
         try {
             List<Customer> customers = Files.lines(Paths.get(path))
                     .map(Customer::new)
