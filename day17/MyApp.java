@@ -3,7 +3,6 @@ package com.wnxy.day17;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 public class MyApp {
     public static void main(String[] args) {
@@ -25,7 +24,7 @@ public class MyApp {
         array2.add("4");
         array2.add("5");
         array2.add("6");
-        Optional<String> s = MyClass.firstItem(array2);
+        String s = MyClass.firstItem(array2);
         System.out.println(s);
 
         List<Integer> arr3 = new ArrayList<>();
@@ -34,8 +33,8 @@ public class MyApp {
         arr3.add(5);
         arr3.add(7);
         arr3.add(9);
-        Optional<Integer> i = MyClass.firstItem(arr3);
-        System.out.println(i);
+        Integer integer = MyClass.firstItem(arr3);
+        System.out.println(integer);
     }
 
     public static void callReverse() {
