@@ -4,7 +4,15 @@ import java.util.Arrays;
 
 public class MyApp {
     public static void main(String[] args) {
-        callReverse();
+        demo03();
+    }
+
+    public static void demo03() {
+        MyList<String> myList = new MyList<>();
+        myList.add("lqc");
+        myList.add("xxx");
+        myList.forEach(System.out::println);
+        myList.remove(1);
     }
 
     public static void callReverse() {
