@@ -98,4 +98,10 @@ public class View {
     private void addCompany() {
         boolean flag = companyDao.addCompany(getCompanyInfo());
     }
+
+    private void deleteCompanyById() {
+        System.out.println("id:");
+        String i = scanner.next();
+        companyDao.deleteCompanyById(i);
+    }
 }
