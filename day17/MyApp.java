@@ -6,7 +6,27 @@ import java.io.File;
 
 public class MyApp {
     public static void main(String[] args) {
-        demo02();
+        demo03();
+    }
+
+    public static void demo03() {
+        String path = "D:\\Ace Combat 7 Skies Unknown";
+        File file = new File(path);
+        traverseFile(file);
+    }
+
+    public static void traverseFile(File file) {
+        if (file.isDirectory()) {
+            System.out.println("文件夹:" + file.getAbsolutePath());
+            File[] files = file.listFiles();
+            if (files != null) {
+                for (File f : files) {
+                    traverseFile(f); // 递归遍历子文件夹
+                }
+            }
+        } else {
+            System.out.println("文件：" + file.getAbsolutePath());
+        }
     }
 
     @SneakyThrows
