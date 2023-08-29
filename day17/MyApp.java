@@ -12,20 +12,20 @@ public class MyApp {
     public static void demo03() {
         String path = "D:\\Ace Combat 7 Skies Unknown";
         File file = new File(path);
-        traverseFile(file);
+        traverseFile(file, "|---");
     }
 
-    public static void traverseFile(File file) {
+    public static void traverseFile(File file, String pre) {
         if (file.isDirectory()) {
-            System.out.println("文件夹:" + file.getAbsolutePath());
+            System.out.println(pre + "文件夹:" + file.getName());
             File[] files = file.listFiles();
             if (files != null) {
                 for (File f : files) {
-                    traverseFile(f); // 递归遍历子文件夹
+                    traverseFile(f, "|---"); // 递归遍历子文件夹
                 }
             }
         } else {
-            System.out.println("文件：" + file.getAbsolutePath());
+            System.out.println(pre + "---" + "文件：" + file.getName());
         }
     }
 
