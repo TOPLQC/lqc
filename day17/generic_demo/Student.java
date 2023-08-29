@@ -1,4 +1,4 @@
-package com.wnxy.day17;
+package com.wnxy.day17.generic_demo;
 
 public class Student {
     public String name;

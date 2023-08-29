@@ -1,4 +1,4 @@
-package com.wnxy.day17;
+package com.wnxy.day17.generic_demo;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
