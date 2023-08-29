@@ -1,4 +1,4 @@
-package com.wnxy.day17;
+package com.wnxy.day17.generic_demo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,8 +6,29 @@ import java.util.List;
 
 public class MyApp {
     public static void main(String[] args) {
-        getFirst();
+        demo04();
     }
+
+    public static void demo04() {
+        List<String> array2 = new ArrayList<>();
+        array2.add("2");
+        array2.add("3");
+        array2.add("4");
+        array2.add("5");
+        array2.add("6");
+
+
+        List<Integer> arr3 = new ArrayList<>();
+        arr3.add(1);
+        arr3.add(2);
+        arr3.add(5);
+        arr3.add(7);
+        arr3.add(9);
+
+        boolean compare = MyClass.compare(array2, array2);
+        System.out.println(compare);
+    }
+
 
     public static void demo03() {
         MyList<String> myList = new MyList<>();
