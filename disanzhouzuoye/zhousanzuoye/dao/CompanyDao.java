@@ -27,5 +27,4 @@ public interface CompanyDao {
     Map<Integer, Long> reportC();
 
     Optional<Integer> selectEarliestCreatedCompany();
-
 }
