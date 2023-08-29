@@ -29,6 +29,7 @@ public class MyApp {
         Student student = new Student("lqc", 88);
         Student student1 = new Student("ssc", 99);
         swapStudent(student, student1);
+
         System.out.println(student.toString());
         System.out.println(student1.toString());
     }
