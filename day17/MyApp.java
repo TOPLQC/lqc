@@ -1,8 +1,20 @@
 package com.wnxy.day17;
 
+import java.util.Arrays;
+
 public class MyApp {
     public static void main(String[] args) {
-        callSwapStudent();
+        callReverse();
+    }
+
+    public static void callReverse() {
+        Integer[] array1 = {3, 4, 5, 7, 8, 9, 10};
+        MyClass.reverseArray(array1);
+        System.out.println(Arrays.toString(array1));
+
+        String[] array2 = {"23", "41", "51", "72", "855", "999", "1100"};
+        MyClass.reverseArray(array2);
+        System.out.println(Arrays.toString(array2));
     }
 
     public static void callSwapStudent() {
