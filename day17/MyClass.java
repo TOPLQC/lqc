@@ -1,7 +1,6 @@
 package com.wnxy.day17;
 
 import java.util.List;
-import java.util.Optional;
 
 public class MyClass {
     public static <T> void reverseArray(T[] array) {
@@ -13,9 +12,7 @@ public class MyClass {
         }
     }
 
-    public static <T> Optional<T> firstItem(List<T> list) {
-        Optional<T> first = list.stream()
-                .findFirst();
-        return first;
+    public static <T> T firstItem(List<T> list) {
+        return list.get(0);
     }
 }
