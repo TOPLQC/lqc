@@ -1,10 +1,13 @@
 package com.wnxy.day17;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 public class MyApp {
     public static void main(String[] args) {
-        demo03();
+        getFirst();
     }
 
     public static void demo03() {
@@ -15,6 +18,26 @@ public class MyApp {
         myList.remove(1);
     }
 
+    public static void getFirst() {
+        List<String> array2 = new ArrayList<>();
+        array2.add("2");
+        array2.add("3");
+        array2.add("4");
+        array2.add("5");
+        array2.add("6");
+        Optional<String> s = MyClass.firstItem(array2);
+        System.out.println(s);
+
+        List<Integer> arr3 = new ArrayList<>();
+        arr3.add(1);
+        arr3.add(2);
+        arr3.add(5);
+        arr3.add(7);
+        arr3.add(9);
+        Optional<Integer> i = MyClass.firstItem(arr3);
+        System.out.println(i);
+    }
+
     public static void callReverse() {
         Integer[] array1 = {3, 4, 5, 7, 8, 9, 10};
         MyClass.reverseArray(array1);
@@ -22,7 +45,10 @@ public class MyApp {
 
         String[] array2 = {"23", "41", "51", "72", "855", "999", "1100"};
         MyClass.reverseArray(array2);
-        System.out.println(Arrays.toString(array2));
+//        Optional<String> s = MyClass.firstItem(array2);
+        System.out.println(Arrays.toString(array1));
+
+
     }
 
     public static void callSwapStudent() {
