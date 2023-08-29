@@ -12,8 +12,19 @@ public class MyApp {
     public static void demo03() {
         String path = "D:\\Ace Combat 7 Skies Unknown";
         File file = new File(path);
-        traverseFile(file, "|---");
+        showFiles(file, "|---");
     }
+
+    public static void showFiles(File file, String pre) {
+        File[] files = file.listFiles();
+        for (File child : files) {
+            System.out.println(pre + " " + child.getName());
+            if (child.isDirectory()) {
+                showFiles(child, pre + "---");
+            }
+        }
+    }
+
 
     public static void traverseFile(File file, String pre) {
         if (file.isDirectory()) {
