@@ -1,0 +1,86 @@
+CREATE TABLE company (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  boss VARCHAR(10) NOT NULL,
+  `year` DATE NOT NULL
+);
+
+INSERT INTO customer(name,sex,phone,province) VALUES('wyf',b'1','11011011000','湖北');
+INSERT INTO customer(name,sex,phone,province) VALUES('cxk',b'1','11000111000','广东');
+INSERT INTO customer(name,sex,phone,province) VALUES('lzx',b'1','00111011011','监狱');
+
+INSERT INTO customer(name,sex,phone,province) VALUES('suk',0,'1241254122','啊美莉卡'),('tjss',0,'1241254122','大嘤帝国');
+
+
+
+
+SELECT * FROM customer
+SELECT id, `name`,sex,phone,province FROM customer WHERE `name` LIKE '%x%'
+DELETE FROM customer WHERE `name` = 'wyf'
+
+SELECT name as 名字,province as 地址 ,'罪犯' 傻逼 FROM customer
+
+
+CREATE TABLE student(
+		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+		stu_name VARCHAR(10) NOT NULL,
+		email VARCHAR(30) NOT NULL,
+		address VARCHAR(10) not null,
+		age INT(3) not null,
+		sex BIT not NULL,
+		entry_time DATETIME not NULL
+);
+
+insert into student(stu_name, email, address, age, sex, entry_time)
+values ('曹操', 'cao@qq.com', '贵州', 59, 1, '2020-10-09'),
+			('孙权', 'quan@qq.com', '湖北', 32, 1, '2020-11-19'),
+			('刘备', 'bei@sina.com', '安徽', 40, 1, '2019-02-14'),
+			('大乔', 'big.qiao@qq.com', '河北', 20, 0, '2018-03-19'),
+			('小乔', 'small.qiao@qq.com', '河北', 18, 0, '2018-03-19'),
+			('周瑜', 'yu@sina.com', '黑龙江', 21, 1, '2020-7-20'),
+			('吕布', 'bu.lv@qq.com', '辽宁', 27, 1, '2022-8-5'),
+			('貂蝉', 'diao@qq.com', '内蒙古', 22, 0, '2023-10-22')
+
+SELECT * FROM customer
+SELECT * FROM student
+update student set email = null where id = 8
+
+SELECT * FROM student WHERE `stu_name` = '曹操'
+-- 查询山西客户的姓名以及联系方式
+SELECT `name` , phone FROM customer WHERE province = '山西'
+-- 查询电话号码为10000的客户个人信息
+SELECT * FROM customer WHERE phone = '10000'
+-- 查询年龄为18的学员姓名以及邮箱
+SELECT stu_name , email FROM student WHERE age = 18
+
+SELECT * FROM student WHERE email IS NULL
+
+-- 组合查询
+
+
+SELECT * FROM student WHERE address = '河北' AND age = 20
+
+SELECT * FROM student WHERE age >=20 AND age <22
+
+-- 查询女学员或者来自湖南的学员
+
+SELECT * FROM student WHERE sex = 0 OR address = '湖南'
+-- 查询邮箱不为空的学员
+SELECT * FROM student WHERE email IS NOT NULL
+
+-- 查询湖南湖北的学员信息
+SELECT * FROM student WHERE address = '湖南' or address = '湖北'
+
+-- 查询曹操和孙权的个人信息
+SELECT * FROM student WHERE stu_name = '曹操' OR stu_name = '孙权'
+
+SELECT * FROM student	WHERE stu_name IN ('曹操','孙权')
+
+-- 查询湖北河北的女生个人信息
+SELECT * FROM student WHERE address IN ('湖北','河北') AND sex IN (0)
+
+-- 查询18和22岁的学员信息
+SELECT * FROM student WHERE age IN (18,22)
+
+-- 查询2020年入学后的男生个人信息
+SELECT * FROM student WHERE sex = 1 AND entry_time > '2020-01-01';
