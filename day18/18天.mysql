@@ -176,3 +176,47 @@ SELECT address FROM student GROUP BY address;
 SELECT address 地址, GROUP_CONCAT(stu_name) 名字
 FROM student
 GROUP BY address;
+
+-- 统计每个省份的学员人数
+SELECT address 省份,count(1) 人数
+FROM student
+GROUP BY address;
+
+-- 查询所有女生的入学时间
+SELECT stu_name 姓名, student.entry_time 入学时间
+FROM student
+WHERE sex = 0;
+
+-- 查询所有2020年后入学的学员人数
+SELECT count(1) as 2020年后入学人数
+FROM student
+WHERE student.entry_time>'2020-1-1';
+
+-- 查询年龄最大的女生
+SELECT stu_name, MAX(age)
+FROM student
+WHERE sex = 0
+GROUP BY stu_name
+LIMIT 1;
+
+-- 查询每个省学员的最小年龄
+SELECT address 省份, MIN(age) 年龄
+FROM student
+GROUP BY address;
+
+-- 查询年龄在18-25岁的男女生人数
+SELECT sex 性别, count(1) 人数
+FROM student
+WHERE age >= 18 AND age <= 25
+GROUP BY sex;
+
+-- 查询我们的学员来自哪些省
+-- 方法1
+SELECT address
+FROM student
+GROUP BY address;
+-- 方法二
+SELECT address 地址, GROUP_CONCAT(stu_name) 名字
+FROM student
+GROUP BY address;
+
