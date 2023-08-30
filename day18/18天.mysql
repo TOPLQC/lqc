@@ -84,3 +84,18 @@ SELECT * FROM student WHERE age IN (18,22)
 
 -- 查询2020年入学后的男生个人信息
 SELECT * FROM student WHERE sex = 1 AND entry_time > '2020-01-01';
+
+SELECT*FROM student WHERE `stu_name` LIKE '%乔%'
+SELECT*FROM student WHERE address LIKE '%河%';
+SELECT*FROM student WHERE stu_name LIKE '孙%';
+SELECT * FROM student WHERE stu_name LIKE '吕_'
+SELECT * FROM student WHERE stu_name LIKE '吕__'
+
+UPDATE student SET age = age-1 WHERE email LIKE '%sina.com'
+
+
+SELECT * FROM student WHERE sex=0 LIMIT 2
+
+SELECT * FROM student WHERE sex = 0 LIMIT 1 , 1
+
+SELECT * FROM student LIMIT 2 , 1
