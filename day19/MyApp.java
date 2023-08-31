@@ -1,13 +1,32 @@
 package com.wnxy.day19;
 
+import com.wnxy.day19.dao.SubjectDao;
+import com.wnxy.day19.dao.impl.SubjectDaoImpl;
+import com.wnxy.day19.entity.Subject;
+import com.wnxy.day19.utils.DBUtil;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 public class MyApp {
     public static void main(String[] args) {
-        getAllSubjects();
+        getAllSubjects1();
+    }
+
+    public static void test() {
+        Connection connection = DBUtil.getConnection();
+        if (connection != null) {
+            System.out.println(connection);
+        }
+    }
+
+    public static void getAllSubjects1() {
+        SubjectDao subjectDao = new SubjectDaoImpl();
+        List<Subject> subjects = subjectDao.getAllSubjects();
+        subjects.forEach(System.out::println);
     }
 
 
@@ -15,11 +34,7 @@ public class MyApp {
         String sql = "select id, name, class_hour, grade_id from subject";
         Connection connection = null;
         try {
-
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/gzwn_j06?serverTimezone=Asia/Shanghai";
-            connection = DriverManager.getConnection(url, "root", "123456");
+            connection = DBUtil.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
@@ -31,7 +46,7 @@ public class MyApp {
 
         } finally {
             try {
-                connection.close();
+                DBUtil.closeConnection(connection);
             } catch (Exception e) {
                 throw new RuntimeException(e);
 
