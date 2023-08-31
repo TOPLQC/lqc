@@ -6,4 +6,11 @@ import java.util.List;
 
 public interface SubjectDao {
     List<Subject> getAllSubjects();
+
+    Subject getByName(String name);
+
+    Subject getById(Integer id);
+
+    List<Subject> getKeyword(String keyword);
+
 }
