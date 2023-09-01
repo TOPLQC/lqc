@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
 //查询全部学员
 public class StudentDaoImpl implements StudentDao {
     @Override
@@ -34,7 +33,6 @@ public class StudentDaoImpl implements StudentDao {
         }
         return students;
     }
-
     //根据性别查询学员
     @Override
     public List<Student> getStudentBySex(Boolean sex) {
@@ -87,7 +85,7 @@ public class StudentDaoImpl implements StudentDao {
     public List<Student> getStudentByDate(LocalDateTime date) {
         List<Student> students = new ArrayList<>();
         String sql = "SELECT id, stu_name as stuName , email, address ,age , sex ," +
-                "entry_time as entryTime , grade_id as gradeId FROM student where entry_time > ?";
+                "entry_time as entryTime , grade_id as gradeId FROM student where entry_time < ?";
         Connection connection = DBUtil.getConnection();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);

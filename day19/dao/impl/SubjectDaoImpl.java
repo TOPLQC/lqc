@@ -34,6 +34,24 @@ public class SubjectDaoImpl implements SubjectDao {
     }
 
     @Override
+    public void update(Subject subject) {
+        String sql = "update subject set name = ?,class_hour=?,grade_id=? where id = ?";
+        Connection connection = DBUtil.getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setObject(1, subject.getName());
+            statement.setObject(2, subject.getClassHours());
+            statement.setObject(3, subject.getGradeId());
+            statement.setObject(4, subject.getId());
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            DBUtil.closeConnection(connection);
+        }
+    }
+
+    @Override
     public Subject getByName(String name) {
         String sql = "select id,name,grade_id as gradeId , " +
                 "class_hour as ClassHour from subject where name = ?";
@@ -96,6 +114,40 @@ public class SubjectDaoImpl implements SubjectDao {
         }
         return null;
     }
+
+    @Override
+    public void addSubject(Subject subject) {
+        String sql = "insert into subject values(null,?,?,?)";
+        Connection connection = DBUtil.getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setObject(1, subject.getName());
+            statement.setObject(2, subject.getClassHours());
+            statement.setObject(3, subject.getGradeId());
+            statement.execute();   //别忘了加执行语句
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            DBUtil.closeConnection(connection);
+        }
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        String sql = "delete from subject where id = ?";
+        Connection connection = DBUtil.getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setObject(1, id);
+
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            DBUtil.closeConnection(connection);
+        }
+    }
+
 
     private Subject converse2Subject(ResultSet resultSet) throws SQLException {
         Subject subject = new Subject();

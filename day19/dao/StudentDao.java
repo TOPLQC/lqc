@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface StudentDao {
     List<Student> getAllStudent();
-
     List<Student> getStudentBySex(Boolean sex);
 
     List<Student> getStudentByAgeRange(Integer minAge, Integer maxAge);

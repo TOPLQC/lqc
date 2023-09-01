@@ -1,7 +1,10 @@
 package com.wnxy.day19;
 
 import com.wnxy.day19.dao.StudentDao;
+import com.wnxy.day19.dao.SubjectDao;
+import com.wnxy.day19.dao.impl.SubjectDaoImpl;
 import com.wnxy.day19.entity.Student;
+import com.wnxy.day19.entity.Subject;
 import com.wnxy.day19.factory.DaoFactory;
 
 import java.time.LocalDateTime;
@@ -11,8 +14,25 @@ public class MyApp {
     static StudentDao studentDao = DaoFactory.creatCustomerDao();
 
     public static void main(String[] args) {
-        getStudentByAddress();
+        updateSubject();
     }
+
+    public static void updateSubject() {
+        SubjectDao subjectDao = new SubjectDaoImpl();
+        Subject subject = subjectDao.getById(1);
+        subject.setClassHours(subject.getClassHours() + 1);
+        subjectDao.update(subject);
+        System.out.println("OK!");
+
+    }
+
+    public static void deleteById() {
+        Integer id = 9;
+        SubjectDao subjectDao = new SubjectDaoImpl();
+        subjectDao.deleteById(id);
+        System.out.println("ok!");
+    }
+
 
     public static void getStudentByAddress() {
         String address = "河北";
@@ -39,6 +59,14 @@ public class MyApp {
     public static void showAllStudent() {
         List<Student> students = studentDao.getAllStudent();
         students.forEach(System.out::println);
+    }
+
+
+    public static void addSubject() {
+        SubjectDao subjectDao = new SubjectDaoImpl();
+        Subject subject = new Subject("html", 20, 1);
+        subjectDao.addSubject(subject);
+        System.out.println("ok");
     }
 
 
