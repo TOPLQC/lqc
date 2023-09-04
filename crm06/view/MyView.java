@@ -26,49 +26,22 @@ public class MyView {
     }
 
     public void showMenu() {
-        while (true) {
-            System.out.println("请选择你要使用的功能");
-            String[] menus = new String[menuMap.size()];
-            menuMap.keySet().toArray(menus);
-            for (int i = 0; i < menus.length; i++) {
-                System.out.printf("%s.%s\n", i + 1, menus[i]);
-            }
-            int index = scanner.nextInt() - 1;
-            if (index >= 0 && index < menus.length) {
-                String menuName = menus[index];//用户选择的一级菜单名称
-                showChildMenu(menuName); //显示二级菜单
-                System.out.println("返回上级菜单？（y/n）");
-                String backOption = scanner.next();
-                if (!backOption.equalsIgnoreCase("y")) {
-                    break; // 退出菜单循环，返回上级菜单
-                }
-            } else {
-                System.out.println("无效的选择，请重新选择");
-            }
+        System.out.println("请选择你要使用的功能");
+        String[] menus = new String[menuMap.size()];
+        menuMap.keySet().toArray(menus);
+        for (int i = 0; i < menus.length; i++) {
+            System.out.printf("%s.%s\n", i + 1, menus[i]);
         }
+        int index = scanner.nextInt() - 1;
+        String menuName = menus[index];//用户选择的一级菜单名称
+        showChildMenu(menuName); //显示二级菜单
+
     }
 
     private void showChildMenu(String menuName) {
         List<String> childMenu = menuMap.get(menuName);
-        while (true) {
-            System.out.println("请选择" + menuName + "的功能：");
-            for (int i = 0; i < childMenu.size(); i++) {
-                System.out.printf("%s.%s\n", i + 1, childMenu.get(i));
-            }
-            int childIndex = scanner.nextInt() - 1;
-            if (childIndex >= 0 && childIndex < childMenu.size()) {
-                String childMenuItem = childMenu.get(childIndex);
-                // 在这里执行选中的子菜单项的功能
-                System.out.println("执行" + childMenuItem + "的功能");
-            } else {
-                System.out.println("无效的选择，请重新选择");
-            }
-
-            System.out.println("返回上级菜单？（y/n）");
-            String backOption = scanner.next();
-            if (!backOption.equalsIgnoreCase("y")) {
-                break; // 退出子菜单循环，返回上级菜单
-            }
+        for (int i = 0; i < childMenu.size(); i++) {
+            System.out.printf("\t%s.%s\n", i + 1, childMenu.get(i));
         }
     }
 
