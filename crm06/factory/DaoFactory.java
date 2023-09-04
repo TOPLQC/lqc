@@ -1,4 +1,4 @@
-package com.wnxy.crm06.view.factory;
+package com.wnxy.crm06.factory;
 
 import com.wnxy.crm_v05.dao.CustomerDao;
 import lombok.SneakyThrows;

@@ -37,7 +37,6 @@ public class MyView {
         showChildMenu(menuName); //显示二级菜单
 
     }
-
     private void showChildMenu(String menuName) {
         List<String> childMenu = menuMap.get(menuName);
         for (int i = 0; i < childMenu.size(); i++) {
