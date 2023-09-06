@@ -2,7 +2,7 @@ package com.wnxy.day12.lambdademo;
 
 public class LambdaDemo {
     public static void main(String[] args) {
-        demo02();
+        demo05();
     }
 
     public static void demo01() {
@@ -12,6 +12,14 @@ public class LambdaDemo {
         };
 
         System.out.println(ia.add(5, 6));
+    }
+
+    public static void demo05() {
+        IA iaa = (Integer a, Integer b) -> {
+            int sum = a * b;
+            return sum;
+        };
+        System.out.println(iaa.add(5, 6));
     }
 
     public static void demo02() {
