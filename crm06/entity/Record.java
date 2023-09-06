@@ -16,4 +16,18 @@ public class Record {
     private String rtype;
     private String remark;
     private LocalDateTime createtime;
+    private String ename;
+    private String cname;
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "id=" + id + ", " +
+                "ename='" + ename + '\'' +
+                ", cname='" + cname + '\'' +
+                ", rtype='" + rtype + '\'' +
+                ", remark='" + remark + '\'' +
+                ", createtime=" + createtime +
+                '}';
+    }
 }
