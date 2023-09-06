@@ -1,4 +1,4 @@
-package com.wnxy.crm06.utils;
+package com.wnxy.new_crm_06.utils;
 
 import lombok.SneakyThrows;
 
@@ -95,27 +95,12 @@ public class JdbcUtil {
         for (int i = 1; i <= columnCount; i++) {
             String label = metaData.getColumnLabel(i);//取出第一列的列名或别名
             //通过别名，既属性名找属性信息对象Field
-            Field field = getField(clazz, label);
+            Field field = clazz.getDeclaredField(label);
             Object value = resultSet.getObject(label);
             field.setAccessible(true);
             field.set(instance, value);
         }
         return instance;
-    }
-
-    private static Field getField(Class<?> clazz, String label) {
-        try {
-            Field field = clazz.getDeclaredField(label);
-            return field;
-        } catch (NoSuchFieldException e) {
-            //看clazz有没有父类
-            Class<?> superclass = clazz.getSuperclass();
-            if (superclass != null) {
-                return getField(superclass, label);
-            } else {
-                throw new RuntimeException(e);
-            }
-        }
     }
 
 

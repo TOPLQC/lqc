@@ -1,15 +1,16 @@
-package com.wnxy.crm06.view;
+package com.wnxy.new_crm_06.view;
 
-import com.wnxy.crm06.ApplicationContext;
-import com.wnxy.crm06.dao.CustomerDao;
-import com.wnxy.crm06.dao.EmpDao;
-import com.wnxy.crm06.dao.RecordDao;
-import com.wnxy.crm06.dto.RecordDto;
-import com.wnxy.crm06.entity.Customer;
-import com.wnxy.crm06.entity.Employee;
-import com.wnxy.crm06.entity.Record;
-import com.wnxy.crm06.exception.DataRepeatException;
-import com.wnxy.crm06.factory.DaoFactory;
+import com.wnxy.new_crm_06.ApplicationContext;
+import com.wnxy.new_crm_06.dao.CustomerDao;
+import com.wnxy.new_crm_06.dao.EmpDao;
+import com.wnxy.new_crm_06.dao.RecordDao;
+import com.wnxy.new_crm_06.dao.impl.CustomerImpl;
+import com.wnxy.new_crm_06.dao.impl.EmpDaoImpl;
+import com.wnxy.new_crm_06.dao.impl.RecordDaoImpl;
+import com.wnxy.new_crm_06.entity.Customer;
+import com.wnxy.new_crm_06.entity.Employee;
+import com.wnxy.new_crm_06.entity.Record;
+import com.wnxy.new_crm_06.exception.DataRepeatException;
 import lombok.SneakyThrows;
 
 import java.lang.reflect.InvocationTargetException;
@@ -17,9 +18,9 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 public class MyView {
-    EmpDao empDao = DaoFactory.createDao(EmpDao.class);
-    CustomerDao customerDao = DaoFactory.createDao(CustomerDao.class);
-    RecordDao recordDao = DaoFactory.createDao(RecordDao.class);
+    EmpDao empDao = new EmpDaoImpl();
+    CustomerDao customerDao = new CustomerImpl();
+    RecordDao recordDao = new RecordDaoImpl();
 
     Scanner scanner = new Scanner(System.in);
     Map<String, List<String>> menuMap;
@@ -39,7 +40,6 @@ public class MyView {
         menuMethodMap.put("修改客户联系方式", "updateCustomerMobile");
         menuMethodMap.put("根据电话查询客户", "showCustomersByMobile");
         menuMethodMap.put("添加员工", "addEmployee");
-        menuMethodMap.put("显示全部员工", "showAllEmployee");
         menuMethodMap.put("删除员工", "removeEmployeeById");
         menuMethodMap.put("添加访谈记录", "addRecord");
         menuMethodMap.put("查询个人访谈记录", "showMyRecord");
@@ -49,23 +49,21 @@ public class MyView {
     private void addRecord() {
         Record recordInfo = getRecordInfo();
         recordDao.addRecord(recordInfo);
-        showMyRecord();
     }
 
     private Record getRecordInfo() {
         Record record = new Record();
         System.out.println("请输入客户id");
         record.setCustomerId(scanner.nextInt());
-        System.out.println("请输入类型(1、线上；2、线下)");
-        record.setRtype(scanner.nextInt() == 1 ? "线上" : "线下");
-        System.out.println("请输入备注");
+        System.out.println("请输入类型");
+        record.setRtype(scanner.next());
+        System.out.println("请输交易意向");
         record.setRemark(scanner.next());
-
         return record;
     }
 
     private void showMyRecord() {
-        List<RecordDto> myRecord = recordDao.getMyRecord();
+        List<Record> myRecord = recordDao.getMyRecord();
         myRecord.forEach(System.out::println);
     }
 
@@ -175,10 +173,6 @@ public class MyView {
             System.out.printf("%s.%s\n", i + 1, menus[i]);
         }
         int index = scanner.nextInt() - 1;
-        if (index > menus.length - 1 || index < 0) {
-            System.out.println("输入错误！请重新输入");
-            showMenu();
-        }
         String menuName = menus[index];//用户选择的一级菜单名称
         showChildMenu(menuName); //显示二级菜单
 

@@ -1,11 +1,12 @@
-package com.wnxy.crm06;
+package com.wnxy.new_crm_06;
 
-import com.wnxy.crm06.dao.EmpDao;
-import com.wnxy.crm06.dao.impl.EmpDaoImpl;
-import com.wnxy.crm06.entity.Employee;
+import com.wnxy.new_crm_06.dao.EmpDao;
+import com.wnxy.new_crm_06.dao.impl.EmpDaoImpl;
+import com.wnxy.new_crm_06.entity.Employee;
 
 public class MyTest {
     public static void main(String[] args) {
+        test1();
     }
 
     public static void test1() {
@@ -13,14 +14,11 @@ public class MyTest {
         Employee ww = empDao.selectByAccount("ww");
         System.out.println(ww);
     }
+
 //    public static void test2(){
-//        test2();
+//        test3();
 //    }
 //    public static void test3(){
 //        test2();
-//    }
-//    public static void testPropertiesUtil(){
-//        String property = PropertyUtil.getProperty("jdbc.driverName");
-//        System.out.println(property);
 //    }
 }

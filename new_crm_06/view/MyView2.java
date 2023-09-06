@@ -1,4 +1,4 @@
-package com.wnxy.crm06.view;
+package com.wnxy.new_crm_06.view;
 
 import java.util.*;
 

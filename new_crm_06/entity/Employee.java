@@ -1,4 +1,4 @@
-package com.wnxy.crm06.entity;
+package com.wnxy.new_crm_06.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,12 +9,11 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Record {
+public class Employee {
     private Integer id;
-    private Integer customerId;
-    private Integer employeeId;
-    private String rtype;
-    private String remark;
+    private String account;
+    private String password;
+    private String ename;
     private LocalDateTime createtime;
-
+    private Integer state;
 }

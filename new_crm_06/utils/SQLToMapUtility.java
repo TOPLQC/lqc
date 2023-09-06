@@ -1,4 +1,4 @@
-package com.wnxy.crm06.utils;
+package com.wnxy.new_crm_06.utils;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;

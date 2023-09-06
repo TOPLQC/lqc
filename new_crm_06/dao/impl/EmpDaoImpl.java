@@ -1,10 +1,10 @@
-package com.wnxy.crm06.dao.impl;
+package com.wnxy.new_crm_06.dao.impl;
 
-import com.wnxy.crm06.ApplicationContext;
-import com.wnxy.crm06.dao.EmpDao;
-import com.wnxy.crm06.entity.Employee;
-import com.wnxy.crm06.exception.DataRepeatException;
-import com.wnxy.crm06.utils.JdbcUtil;
+import com.wnxy.new_crm_06.ApplicationContext;
+import com.wnxy.new_crm_06.dao.EmpDao;
+import com.wnxy.new_crm_06.entity.Employee;
+import com.wnxy.new_crm_06.exception.DataRepeatException;
+import com.wnxy.new_crm_06.utils.JdbcUtil;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class EmpDaoImpl implements EmpDao {
             throw new DataRepeatException("账户已经存在，添加失败");
         }
         String sql = "insert into employee(account, password, ename) VALUES (?,?,?)";
-        JdbcUtil.execute(sql, Employee.class,
+        JdbcUtil.execute(sql, employee.getAccount(),
                 employee.getPassword(),
                 employee.getEname());
     }
