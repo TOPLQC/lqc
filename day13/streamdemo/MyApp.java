@@ -86,7 +86,7 @@ public class MyApp {
 
     public static void demo03() {
         MyClass myClass = new MyClass();
-        myClass.a().a().b().c().d().b().c().d().a().e();
+        myClass.a().a().b().c().d().b().c().d().a().f().a().d().e();
     }
 
     public static void demo02() {
@@ -106,7 +106,6 @@ public class MyApp {
         Set<String> set = names.stream()
                 .filter(name -> name.length() == 2)
                 .filter(name -> name.startsWith("李"))
-//                .forEach(System.out::println);
                 .collect(Collectors.toSet());
 
         for (String s : set) {

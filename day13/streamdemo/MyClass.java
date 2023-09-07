@@ -24,4 +24,9 @@ public class MyClass {
     public void e() {
         System.out.println("aaaaaa");
     }
+
+    public MyClass f() {
+        System.out.println("FFFFFFFFFFFF");
+        return this;
+    }
 }
