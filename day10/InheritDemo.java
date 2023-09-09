@@ -11,7 +11,7 @@ public class InheritDemo {
 
     public static void demo01() {
         Policeman policeman = new Policeman();
-        policeman.name = "lqc";
+        policeman.name = "com/wnxy/lqc";
         policeman.age = 11;
         policeman.sex = false;
         policeman.rank = "一级警司";

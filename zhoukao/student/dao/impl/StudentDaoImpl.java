@@ -16,7 +16,7 @@ public class StudentDaoImpl implements StudentDao {
     {
         students = new ArrayList<>();
         {
-            students.add(new Student(2, "lqc", "六年级", "广西", 18));
+            students.add(new Student(2, "com/wnxy/lqc", "六年级", "广西", 18));
             students.add(new Student(3, "张wy", "二年级", "云南", 28));
             students.add(new Student(1, "lzx", "一年级", "广东", 14));
             students.add(new Student(4, "az", "四年级", "广西", 8));

@@ -48,7 +48,7 @@ public class MyApp {
         Supplier<Student> supplier = () -> {
             Student student = new Student();
             student.setAge(18);
-            student.setName("lqc");
+            student.setName("com/wnxy/lqc");
             student.setWeight(70);
             return student;
         };

@@ -32,7 +32,7 @@ public class MyApp {
 
     public static void demo03() {
         MyList<String> myList = new MyList<>();
-        myList.add("lqc");
+        myList.add("com/wnxy/lqc");
         myList.add("xxx");
         myList.forEach(System.out::println);
         myList.remove(1);
@@ -72,7 +72,7 @@ public class MyApp {
     }
 
     public static void callSwapStudent() {
-        Student student = new Student("lqc", 88);
+        Student student = new Student("com/wnxy/lqc", 88);
         Student student1 = new Student("ssc", 99);
         swapStudent(student, student1);
 
